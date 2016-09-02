@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Distribución de Bernoulli </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet prefetch' href='https://bootswatch.com/flatly/bootstrap.min.css'>
+  </head>
+  <body>
+    <div class="container-fluid" data-ng-app="app_probabilidad">
+	<div data-ng-controller="control_principal">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<h1 class="text-center">Ejemplo de uso</h1>
+				<p class="text-justify">La probabilidad de que una persona que hace compras en cierto supermercado aproveche una promoción es del <strong>30 %</strong>. <br />Obtenga las probabilidades que entre <strong>6</strong> personas:</p>
+				<ul>
+					<li>Ninguna aproveche la promoción</li>
+					<li>Máximo 3 aprovechen la promoción</li>
+					<li>Mínimo 4 aprovechen la promoción</li>
+				</ul>
+				<br />
+				<p class="text-justify">Entonces <strong>P = 30</strong>, <strong>n = 6</strong> y <strong>x tomará el valor dependiendo de lo que se quiera sacar.</strong> Por ejemplo, para el primer caso (Ninguna aproveche la promoción) <strong>x = 0</strong></p>
+				<h3 class="text-center">Nota</h3>
+				<p>El programa acepta rangos (por ejemplo 0-3) y también valores separados por comas (por ejemplo 4,5,6).</p>
+			</div>
+			<div class="col-xs-12 well col-sm-6">
+				<h1 class="text-center">Distribución de Bernoulli </h1>
+				<div class="form-group">
+					<label for="null">Probabilidad de éxito: (P)</label>
+					<input autofocus min="0" max="100" data-ng-model="probabilidad_exito_porcentaje" class="form-control" type="number" placeholder="Ingresa la probabilidad en porcentaje. Ej: 30"/>
+				</div>
+				<div class="form-group">
+					<label for="null">Probabilidad a calcular: (x)</label>
+					<input data-ng-model="probabilidad_calcular" class="form-control" type="text" placeholder="Ingresa el valor de x. Ejemplo: 0"/>
+				</div>
+				<div class="form-group">
+					<label for="null">Total de intentos: (n)</label>
+					<input data-ng-model="muestra" class="form-control" type="number" placeholder="Ingresa el valor de la muestra. Ejemplo: 6"/>
+				</div>
+				<button class="btn btn-success form-control"  data-ng-click="resultado = aproximacion(muestra,probabilidad_exito_porcentaje,probabilidad_calcular)">Calcular</button>
+				<h2 class="text-center">Resultados</h2>
+				<div class="alert-success alert">
+					<p><strong>Probabilidad: </strong> {{resultado | number:30}}</p>
+					<p><strong>Probabilidad en porcentaje: </strong> {{resultado * 100 | number:30}} %</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer class="footer">
+      <div class="container-fluid">
+		  <p class="text-muted">Creado y mantenido por <a href="//parzibyte.me" target="_blank">Luis Cabrera Benito</a></p>
+      </div>
+    </footer>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
